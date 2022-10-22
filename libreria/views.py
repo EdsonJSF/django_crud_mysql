@@ -4,3 +4,6 @@ from django.http import HttpResponse
 
 def inicio(request):
   return HttpResponse("<h1>Bienvenido CRUD MySQL</h1>")
+
+def nosotros(request):
+  return render(request, 'pages/nosotros.html')
