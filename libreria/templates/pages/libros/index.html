@@ -26,7 +26,14 @@
             <td>Django</td>
             <td>imagen.jpg</td>
             <td>Libro de Django</td>
-            <td>Editar | Borrar</td>
+            <td>
+              <a class="btn btn-info me-0 me-sm-0" href="{% url 'editar_libro' %}">
+                Editar
+              </a>
+              <a class="btn btn-danger" href="#">
+                Borrar
+              </a>
+            </td>
           </tr>
         </tbody>
       </table>
