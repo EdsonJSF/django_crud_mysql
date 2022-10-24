@@ -10,3 +10,6 @@ def nosotros(request):
 
 def libros(request):
   return render(request, 'pages/libros/index.html')
+
+def crear_libro(request):
+  return render(request, 'pages/libros/create.html')
