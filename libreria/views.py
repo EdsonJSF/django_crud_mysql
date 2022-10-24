@@ -3,7 +3,10 @@ from django.http import HttpResponse
 # Create your views here.
 
 def inicio(request):
-  return HttpResponse("<h1>Bienvenido CRUD MySQL</h1>")
+  return render(request, 'pages/inicio.html')
 
 def nosotros(request):
   return render(request, 'pages/nosotros.html')
+
+def libros(request):
+  return render(request, 'pages/libros/index.html')
