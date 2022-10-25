@@ -21,11 +21,12 @@
           </tr>
         </thead>
         <tbody>
+          {% for libro in libros %}
           <tr>
-            <td>1</td>
-            <td>Django</td>
-            <td>imagen.jpg</td>
-            <td>Libro de Django</td>
+            <td>{{ libro.id }}</td>
+            <td>{{ libro.titulo }}</td>
+            <td><img src="{{libro.imagen.url}}" alt="portada del libro {{ libro.titulo }}" width="100%" height="auto"></td>
+            <td>{{ libro.descripcion }}</td>
             <td>
               <a class="btn btn-info me-0 me-sm-0" href="{% url 'editar_libro' %}">
                 Editar
@@ -35,6 +36,7 @@
               </a>
             </td>
           </tr>
+          {% endfor %}
         </tbody>
       </table>
     </div>
