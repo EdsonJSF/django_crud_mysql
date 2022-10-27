@@ -1,5 +1,4 @@
 from django.db import models
-from requests import delete
 
 # Create your models here.
 class Libro(models.Model):
