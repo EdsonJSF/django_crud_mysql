@@ -23,3 +23,8 @@ def crear_libro(request):
 
 def editar_libro(request):
   return render(request, 'pages/libros/edit.html')
+
+def eliminar_libro(request, id):
+  libro = Libro.objects.get(id=id)
+  libro.delete()
+  return redirect('libros')
