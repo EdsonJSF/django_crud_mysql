@@ -2,6 +2,16 @@
   {% csrf_token %} {% for campo in formulario %}
   <div class="mb-3">
     <label for="" class="form-label">{{ campo.label }}</label>
+    {% if campo.field.widget.input_type == 'file' and campo.value %}
+    <br />
+    <img
+      src="{{ MEDIA_URL }}/imagenes/{{ campo.value }}"
+      alt=""
+      class="mb-2"
+      width="100"
+      height="auto"
+    />
+    {% endif %}
     <input
       type="{{ campo.field.widget.input_type }}"
       class="form-control"
@@ -9,6 +19,7 @@
       id=""
       aria-describedby="helpId"
       placeholder="{{ campo.label }}"
+      value="{{ campo.value | default:'' }}"
     />
   </div>
   <div class="col-12 help-text">{{ campo.errors }}</div>

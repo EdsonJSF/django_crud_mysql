@@ -21,8 +21,13 @@ def crear_libro(request):
     return redirect('libros')
   return render(request, 'pages/libros/create.html', {'formulario': formulario})
 
-def editar_libro(request):
-  return render(request, 'pages/libros/edit.html')
+def editar_libro(request, id):
+  libro = Libro.objects.get(id=id)
+  formulario = LibroForm(request.POST or None, request.FILES or None, instance=libro)
+  if formulario.is_valid() and request.POST:
+    formulario.save()
+    return redirect('libros')
+  return render(request, 'pages/libros/edit.html', {'formulario': formulario})
 
 def eliminar_libro(request, id):
   libro = Libro.objects.get(id=id)
